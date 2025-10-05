@@ -1,15 +1,15 @@
 [package]
-name = "rjq"
+name = "rjx"
 version = "0.1.0"
 edition = "2021"
-description = "A fast and lightweight JSON processor in Rust, alternative to jq"
-authors = ["RJQ Team"]
+description = "A fast and lightweight JSON processor and query tool in Rust"
+authors = ["RJX Team"]
 license = "MIT"
 
 # Required fields for crates.io
-repository = "https://github.com/yourusername/rjq"
-documentation = "https://github.com/yourusername/rjq"
-homepage = "https://github.com/yourusername/rjq"
+repository = "https://github.com/abhinavcdev/rjx"
+documentation = "https://github.com/abhinavcdev/rjx"
+homepage = "https://github.com/abhinavcdev/rjx"
 readme = "README.md"
 keywords = ["json", "jq", "query", "processor", "cli"]
 categories = ["command-line-utilities", "parsing", "text-processing"]
@@ -36,3 +36,7 @@ test-case = "3.3"
 [[bench]]
 name = "benchmark"
 harness = false
+
+[[bin]]
+name = "rjx"
+path = "src/main.rs"

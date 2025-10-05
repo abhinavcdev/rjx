@@ -1,13 +1,13 @@
 #!/bin/bash
 #
-# RJQ Benchmark Script
-# Compares RJQ performance against jq using hyperfine
+# RJX Benchmark Script
+# Compares RJX performance against jq using hyperfine
 #
 
 set -e
 
 # Configuration
-RJQ_BIN="target/release/rjq"
+RJX_BIN="target/release/rjx"
 JQ_BIN="jq"
 RESULTS_DIR="benchmark_results"
 TF_STATE="terraform.tfstate"

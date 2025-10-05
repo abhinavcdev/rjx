@@ -1,8 +1,8 @@
 <div align="center">
 
-# RJQ
+# RJX
 
-**A lightning-fast JSON processor written in Rust**
+**A lightning-fast JSON processor and query tool written in Rust**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![Rust](https://img.shields.io/badge/rust-stable-brightgreen.svg)](https://www.rust-lang.org/)
@@ -11,11 +11,11 @@
 
 ## Overview
 
-RJQ is a high-performance alternative to `jq` written in Rust, designed for processing JSON data with exceptional speed and minimal resource consumption. It provides a familiar query language for filtering, transforming, and manipulating JSON data while delivering significant performance improvements over traditional tools.
+RJX is a high-performance alternative to `jq` written in Rust, designed for processing JSON data with exceptional speed and minimal resource consumption. It provides a familiar query language for filtering, transforming, and manipulating JSON data while delivering significant performance improvements over traditional tools.
 
 ## Performance
 
-Benchmarks against real-world data show that RJQ consistently outperforms jq:
+Benchmarks against real-world data show that RJX consistently outperforms jq:
 
 | Query Type | Speed Improvement |
 |------------|-------------------|
@@ -56,25 +56,25 @@ These improvements are particularly noticeable when processing large JSON files 
 
 ## Installation
 
-### From Cargo (Coming Soon)
+### From Cargo
 
 ```bash
-cargo install rjq
+cargo install rjx
 ```
 
 ### From Source
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/rjq.git
-cd rjq
+git clone https://github.com/yourusername/rjx.git
+cd rjx
 
 # Build the project
 cargo build --release
 
-# The binary will be available at target/release/rjq
+# The binary will be available at target/release/rjx
 # You can copy it to a directory in your PATH
-cp target/release/rjq ~/.local/bin/  # Linux/macOS
+cp target/release/rjx ~/.local/bin/  # Linux/macOS
 ```
 
 ## Usage
@@ -82,7 +82,7 @@ cp target/release/rjq ~/.local/bin/  # Linux/macOS
 ### Basic Command Structure
 
 ```bash
-rjq [OPTIONS] -q <QUERY> [FILE]
+rjx [OPTIONS] -q <QUERY> [FILE]
 ```
 
 ### Common Options
@@ -99,49 +99,49 @@ rjq [OPTIONS] -q <QUERY> [FILE]
 
 ### Input Sources
 
-RJQ can read JSON from files or stdin:
+RJX can read JSON from files or stdin:
 
 ```bash
 # From a file
-rjq -q '.name' input.json
+rjx -q '.name' input.json
 
 # From stdin
-cat input.json | rjq -q '.name'
-curl -s 'https://api.example.com/data' | rjq -q '.results[]'
+cat input.json | rjx -q '.name'
+curl -s 'https://api.example.com/data' | rjx -q '.results[]'
 ```
 
 ### Query Examples
 
 ```bash
 # Access properties
-rjq -q '.name' input.json
-rjq -q '.address.city' input.json
+rjx -q '.name' input.json
+rjx -q '.address.city' input.json
 
 # Array operations
-rjq -q '.users[0]' input.json             # First element
-rjq -q '.users[1:3]' input.json           # Slice (elements 1 and 2)
-rjq -q '.users[]' input.json              # All elements
+rjx -q '.users[0]' input.json             # First element
+rjx -q '.users[1:3]' input.json           # Slice (elements 1 and 2)
+rjx -q '.users[]' input.json              # All elements
 
 # Filtering
-rjq -q '.users[] | select(.active == true)' input.json
-rjq -q '.items[] | select(.price > 100)' input.json
+rjx -q '.users[] | select(.active == true)' input.json
+rjx -q '.items[] | select(.price > 100)' input.json
 
 # Transformations
-rjq -q '.address | {city, state}' input.json
-rjq -q '.users[] | {name, email}' input.json
+rjx -q '.address | {city, state}' input.json
+rjx -q '.users[] | {name, email}' input.json
 
 # Metadata
-rjq -q '.items | length' input.json
-rjq -q '.config | keys' input.json
+rjx -q '.items | length' input.json
+rjx -q '.config | keys' input.json
 ```
 
 ## Benchmarking
 
-RJQ includes built-in benchmarking capabilities to measure performance:
+RJX includes built-in benchmarking capabilities to measure performance:
 
 ```bash
 # Show execution time for a query
-rjq -q '.users[] | select(.active)' -b large-file.json
+rjx -q '.users[] | select(.active)' -b large-file.json
 ```
 
 For comprehensive benchmarks against jq, use the included benchmark script:
@@ -155,7 +155,7 @@ For comprehensive benchmarks against jq, use the included benchmark script:
 
 The following results were obtained on a Terraform state file (~700KB):
 
-| Query | RJQ | jq | Speedup |
+| Query | RJX | jq | Speedup |
 |-------|-----|-----|--------|
 | `.version` | 2.9ms | 19.9ms | 6.8x |
 | `.resources[0].type` | 3.7ms | 18.7ms | 5.1x |
@@ -164,7 +164,7 @@ The following results were obtained on a Terraform state file (~700KB):
 
 ## Comparison with jq
 
-### Advantages of RJQ
+### Advantages of RJX
 
 - **Performance**: Significantly faster for most operations
 - **Memory Usage**: Lower memory footprint
@@ -173,7 +173,7 @@ The following results were obtained on a Terraform state file (~700KB):
 
 ### Current Limitations
 
-RJQ is under active development and doesn't yet support all jq features:
+RJX is under active development and doesn't yet support all jq features:
 
 - Advanced filters and functions (e.g., `map_values`, `to_entries`)
 - Custom functions and variables
@@ -198,7 +198,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Query Language Reference
 
-RJQ supports a query language similar to jq with the following operators and expressions:
+RJX supports a query language similar to jq with the following operators and expressions:
 
 ### Basic Operators
 - `.` - Identity (returns the input unchanged)

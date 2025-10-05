@@ -66,7 +66,7 @@ cargo install rjx
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/rjx.git
+git clone https://github.com/abhinavcdev/rjx.git
 cd rjx
 
 # Build the project

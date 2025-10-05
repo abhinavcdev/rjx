@@ -1,0 +1,38 @@
+[package]
+name = "rjq"
+version = "0.1.0"
+edition = "2021"
+description = "A fast and lightweight JSON processor in Rust, alternative to jq"
+authors = ["RJQ Team"]
+license = "MIT"
+
+# Required fields for crates.io
+repository = "https://github.com/yourusername/rjq"
+documentation = "https://github.com/yourusername/rjq"
+homepage = "https://github.com/yourusername/rjq"
+readme = "README.md"
+keywords = ["json", "jq", "query", "processor", "cli"]
+categories = ["command-line-utilities", "parsing", "text-processing"]
+# Exclude unnecessary files when publishing
+exclude = [
+    "benches/sample-benchmarks/terraform.tfstate",
+    "benchmark_results/",
+    ".github/",
+]
+
+[dependencies]
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+clap = { version = "4.4", features = ["derive"] }
+anyhow = "1.0"
+thiserror = "1.0"
+regex = "1.10"
+colored = "2.0"
+
+[dev-dependencies]
+criterion = "0.5"
+test-case = "3.3"
+
+[[bench]]
+name = "benchmark"
+harness = false
